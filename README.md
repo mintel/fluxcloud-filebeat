@@ -36,10 +36,22 @@ make
 # In another terminal, curl some example flux event (which would come from fluxcloud)
 curl -d@examples/release.json http://localhost:8080/v1/event -H"Content-type:application/json"
 ```
+## Envars
+
+Supported environments vars
+
+| Variable 	       | Description                               | Default        | Required |
+|----------------------|-------------------------------------------|----------------|----------|
+| PORT                 | Port that the webserver listens on        | 8080           | No       |
+| FILEBEAT_ADDRESS     | TCP Socket address to forward events onto | 127.0.0.1:9000 | No       |
+| VCS_ROOT_URL         | Root URL of your VCS                      | -              | Yes      |
+| CLUSTER_NAME         | Name of your cluster                      | -              | Yes      |
+| CLUSTER_ENV          | Environment of your cluster               | -              | Yes      |
+| KEEP_FLUX_EVENTS     | Forward on orignial Flux events           | 0              | No       |
 
 ## Kubernetes Manifests
 
-Typically used as sidecar alongside flux and fluxcloud and filebeat.
+Typically used as sidecar alongside flux, fluxcloud and filebeat.
 
 ```yaml
   - name: fluxcloud
