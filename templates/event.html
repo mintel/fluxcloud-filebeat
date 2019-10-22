@@ -1,0 +1,25 @@
+<div>
+	<b>{{ .Title }}</b></br>
+	{{- if .Workloads }}
+	<b>Affected Workloads</b></br>
+	{{- range .Workloads }}
+		<li>{{ . }}</li>
+	{{- end }}
+	{{- end }}
+
+	{{- if .Commits }}
+	<b>Commits</b></br>
+	{{- range .Commits }}
+	<li><a title="{{- if .User }}Released by {{ .User }}{{ end }}" href="{{ $.VCSRootURL }}/commit/{{ .Revision }}">{{ .ShortRevision }}</a>
+	{{- if .Message }} - {{ .Message }}{{- end }}
+	</li>
+	{{- end }}
+	{{- end }}
+
+	{{- if .Namespaces }}
+	<b>Affected Namespace</b></br>
+	{{- range .Namespaces }}
+		<li>{{ . }}</li>
+	{{- end }}
+	{{- end }}
+</div>

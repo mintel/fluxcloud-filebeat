@@ -1,0 +1,43 @@
+{
+  "Body": "Event: Automated release of registry.gitlab.com/example-project/helloworld:364f1035\\n\\nResources updated:\\n\\n* sandbox:deployment/review-helloworld-app",
+  "Event": {
+    "endedAt": "2019-10-18T14:02:48.05136137Z",
+    "id": 0,
+    "logLevel": "info",
+    "metadata": {
+      "Revision": "34b5d2a5cddc4fd5068a71af996f07398411f43f",
+      "result": {
+        "sandbox:deployment/review-helloworld-app": {
+          "PerContainer": [
+            {
+              "Container": "main",
+              "Current": "registry.gitlab.com/example-project/helloworld:46d99f14",
+              "Target": "registry.gitlab.com/example-project/helloworld:364f1035"
+            }
+          ],
+          "Status": "success"
+        }
+      },
+      "spec": {
+        "Changes": [
+          {
+            "Container": {
+              "Image": "registry.gitlab.com/example-project/helloworld:46d99f14",
+              "Name": "main"
+            },
+            "ImageID": "registry.gitlab.com/example-project/helloworld:364f1035",
+            "WorkloadID": "sandbox:deployment/review-helloworld-app"
+          }
+        ]
+      }
+    },
+    "serviceIDs": [
+      "sandbox:deployment/review-golang-helloworld-app"
+    ],
+    "startedAt": "2019-10-18T14:02:06.093420959Z",
+    "type": "autorelease"
+  },
+  "Title": "Applied flux changes to cluster",
+  "TitleLink": "https://gitlab.com/example-project",
+  "Type": "autorelease"
+}

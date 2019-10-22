@@ -1,0 +1,48 @@
+{
+  "Body": "Event: Released: registry.gitlab.com/example-project/helloworld:46d99f14 to sandbox:deployment/review-helloworld-app, by Bob\\n\\nResources updated:\\n\\n* sandbox:deployment/review-helloworld-app",
+  "Event": {
+    "endedAt": "2019-10-18T14:04:13.438094255Z",
+    "id": 0,
+    "logLevel": "info",
+    "metadata": {
+      "Revision": "0d5f0970697c6182bd863d8e9517cf42bdefb305",
+      "cause": {
+        "Message": "",
+        "User": "Bob"
+      },
+      "result": {
+        "sandbox:deployment/review-helloworld-app": {
+          "PerContainer": [
+            {
+              "Container": "main",
+              "Current": "registry.gitlab.com/example-project/helloworld:364f1035",
+              "Target": "registry.gitlab.com/example-project/helloworld:46d99f14"
+            }
+          ],
+          "Status": "success"
+        }
+      },
+      "spec": {
+        "ReleaseContainersSpec": null,
+        "ReleaseImageSpec": {
+          "Excludes": null,
+          "Force": false,
+          "ImageSpec": "registry.gitlab.com/example-project/helloworld:46d99f14",
+          "Kind": "execute",
+          "ServiceSpecs": [
+            "sandbox:deployment/review-helloworld-app"
+          ]
+        },
+        "Type": "releaseImageSpecType"
+      }
+    },
+    "serviceIDs": [
+      "sandbox:deployment/review-helloworld-app"
+    ],
+    "startedAt": "2019-10-18T14:03:24.627055634Z",
+    "type": "release"
+  },
+  "Title": "Applied flux changes to cluster",
+  "TitleLink": "https://gitlab.com/example-project",
+  "Type": "release"
+}
