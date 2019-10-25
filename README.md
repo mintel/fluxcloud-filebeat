@@ -21,8 +21,6 @@ netcat -l -p 9000
 ```
 # Export required vars
 export VCS_ROOT_URL=http://github.com/whatever-repo-flux-monitors
-export CLUSTER_ENV=DEV
-export CLUSTER_NAME=dev1
 export FILEBEAT_ADDRESS=127.0.0.1:9000
 ```
 
@@ -45,8 +43,6 @@ Supported environments vars
 | PORT                 | Port that the webserver listens on        | 8080           | No       |
 | FILEBEAT_ADDRESS     | TCP Socket address to forward events onto | 127.0.0.1:9000 | No       |
 | VCS_ROOT_URL         | Root URL of your VCS                      | -              | Yes      |
-| CLUSTER_NAME         | Name of your cluster                      | -              | Yes      |
-| CLUSTER_ENV          | Environment of your cluster               | -              | Yes      |
 | KEEP_FLUX_EVENTS     | Forward on orignial Flux events           | 0              | No       |
 
 ## Kubernetes Manifests
@@ -73,10 +69,6 @@ Typically used as sidecar alongside flux, fluxcloud and filebeat.
       value: "127.0.0.1:9000"
     - name: VCS_ROOT_URL
       value: http://github.com/<your-vsc-root>
-    - name: CLUSTER_ENV
-      value: dev
-    - name: CLUSTER_NAME
-      value: my-super-cluster
     ports:
     - containerPort: 8080
       protocol: TCP

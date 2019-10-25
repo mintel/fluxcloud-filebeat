@@ -95,9 +95,7 @@ func (h *handler) BuildMessage(event fluxevent.Event) types.Message {
 		}
 
 		title = fmt.Sprintf(
-			"Synced %d commits to %s",
-			len(metadata.Commits),
-			h.config.ClusterName,
+			"Synced %d commits", len(metadata.Commits),
 		)
 	}
 
