@@ -110,15 +110,15 @@ func (h *handler) BuildMessage(event fluxevent.Event) types.Message {
 	for _, serviceID := range event.ServiceIDs {
 		namespace, kind, name := serviceID.Components()
 		txt := fmt.Sprintf("%s/%s", kind, name)
-		if !utils.StringInSlice(txt, affectedWorkloads) {
+		if !utils.StringInSlice(txt, affectedWorkloads) && len(txt) > 0 {
 			affectedWorkloads = append(affectedWorkloads, txt)
 		}
 
-		if !utils.StringInSlice(namespace, affectedNamespaces) {
+		if !utils.StringInSlice(namespace, affectedNamespaces) && len(namespace) > 0 {
 			affectedNamespaces = append(affectedNamespaces, namespace)
 		}
 
-		if !utils.StringInSlice(name, tags) {
+		if !utils.StringInSlice(name, tags) && len(name) > 0 {
 			tags = append(tags, name)
 		}
 	}

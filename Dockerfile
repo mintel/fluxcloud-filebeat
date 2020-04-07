@@ -11,7 +11,8 @@ FROM base AS builder
 COPY . .
 RUN GOOS=linux GOARCH=amd64 make
 
-FROM alpine:latest
+FROM alpine:3.11
+
 WORKDIR /app
 
 COPY --from=builder /app/bin/fluxcloud-filebeat /usr/local/bin/fluxcloud-filebeat
