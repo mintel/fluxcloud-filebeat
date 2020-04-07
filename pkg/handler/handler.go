@@ -11,6 +11,8 @@ import (
 	"log"
 	"net"
 	"strings"
+
+	"github.com/mintel/fluxcloud-filebeat/pkg/utils"
 )
 
 type Handler interface {
@@ -108,9 +110,17 @@ func (h *handler) BuildMessage(event fluxevent.Event) types.Message {
 	for _, serviceID := range event.ServiceIDs {
 		namespace, kind, name := serviceID.Components()
 		txt := fmt.Sprintf("%s/%s", kind, name)
-		affectedWorkloads = append(affectedWorkloads, txt)
-		affectedNamespaces = append(affectedNamespaces, namespace)
-		tags = append(tags, name)
+		if !utils.StringInSlice(txt, affectedWorkloads) {
+			affectedWorkloads = append(affectedWorkloads, txt)
+		}
+
+		if !utils.StringInSlice(namespace, affectedNamespaces) {
+			affectedNamespaces = append(affectedNamespaces, namespace)
+		}
+
+		if !utils.StringInSlice(name, tags) {
+			tags = append(tags, name)
+		}
 	}
 
 	// Create message with everything we need - this all gets passed on to FileBeat.
