@@ -102,7 +102,7 @@ func (h *handler) BuildMessage(event fluxevent.Event) types.Message {
 	}
 
 	// Common across all events
-	affectedWorkloads := make([]string, len(event.ServiceIDs)-1)
+	var affectedWorkloads []string
 
 	// Parse out namespaces and services into separate fields.
 	affectedNamespaces := []string{}
