@@ -12,7 +12,9 @@ replace github.com/mintel/pkg/server => ./pkg/server
 
 require (
 	github.com/fluxcd/flux v1.15.0
-	github.com/gin-gonic/gin v1.4.0
+	github.com/gin-gonic/gin v1.7.0
 	github.com/justinbarrick/fluxcloud v0.3.8
 	github.com/kelseyhightower/envconfig v1.4.0
+	gopkg.in/go-playground/assert.v1 v1.2.1 // indirect
+	gopkg.in/go-playground/validator.v8 v8.18.2 // indirect
 )
